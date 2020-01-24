@@ -6,6 +6,7 @@ import Bags from './Bags';
 const UserForm = () => {
     //State
     const [user, setUser] = useState({ name: '', bags: 2 })
+    const [disabled, setDisabled] = useState(true)
 
     //History
     const history = useHistory()
@@ -21,10 +22,17 @@ const UserForm = () => {
     }
 
     const handleChange = (e) => {
-        setUser({
-            ...user,
-            [e.target.name]: e.target.value
-        })
+        const regEx = /([A-Z]{1}[a-zA-Z]+)\s([a-zA-Z]+)/g
+        if (regEx.test(e.target.value)) {
+            setDisabled(false)
+            setUser({
+                ...user,
+                [e.target.name]: e.target.value
+            })
+        } else {
+            setDisabled(true)
+        }
+
     }
 
     const handleBack = () => history.goBack()
@@ -45,7 +53,7 @@ const UserForm = () => {
                 <Bags numberOfBags={user.bags} changeBags={handleBags} />
             </div>
             <div className="form__field">
-                <input type="submit" className="form__submit" />
+                <input type="submit" className="form__submit" disabled={disabled} />
             </div>
             <div className="form__field">
                 <input type="button" className="form__cancel" value="Cancel" onClick={handleBack} />
