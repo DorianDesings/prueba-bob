@@ -29,7 +29,6 @@ controller.addUser = async (req, res, next) => {
         const newUser = new User({ name, bags })
         await newUser.save()
         res.json({ status: 'User saved' })
-        console.log(newUser)
     } catch (err) {
         next(new Error(err))
     }
@@ -37,17 +36,19 @@ controller.addUser = async (req, res, next) => {
 
 controller.updateUser = async (req, res, next) => {
     try {
-        const { user, bags } = req.body
-        const newUser = new User({ user, bags })
+        console.log(req.body)
+        const { name, bags } = req.body
+        const newUser = new User({ name, bags })
         await newUser.findByIdAndUpdate(req.params.id, newUser)
         res.json({ status: 'User updated' })
-    } catch (error) {
+    } catch (err) {
         next(new Error(err))
     }
 }
 
 controller.deleteUser = async (req, res, next) => {
     try {
+        console.log(req.params)
         await User.findByIdAndDelete(req.params.id)
         res.json({ status: 'User deleted' })
     } catch (error) {

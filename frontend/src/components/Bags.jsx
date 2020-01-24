@@ -1,9 +1,12 @@
 import React from 'react';
 
-const Bags = () => {
-
+const Bags = ({ numberOfBags, changeBags }) => {
     return (
-        <h1>Selector de maletas</h1>
+        <div className="bags" >
+            <span className="bags__selector" onClick={() => changeBags('subtraction')}>-</span>
+            <span className="bags__number">{numberOfBags}</span>
+            <span className="bags__selector" onClick={() => changeBags('add')}> +</span>
+        </div >
     )
 }
 

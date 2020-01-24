@@ -1,13 +1,5 @@
 import React from 'react';
-
-//Router
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-
-//Redux
-import { Provider } from 'react-redux'
-import store from './store'
-
-//Components
+import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 import Header from './components/Header';
 import Home from './components/Home'
 import NotFound from './components/NotFound'
@@ -17,8 +9,8 @@ import UpdateUser from './components/UpdateUser'
 
 function App() {
   return (
-    <Router>
-      <Provider store={store}>
+    <>
+      <Router>
         <Header />
         <Switch>
           <Route exact path="/">
@@ -27,6 +19,9 @@ function App() {
           <Route exact path="/new">
             <UserForm />
           </Route>
+          <Route exact path="/delete/:id">
+            <Redirect to='/' />
+          </Route>
           <Route exact path="/:id">
             <UpdateUser />
           </Route>
@@ -34,8 +29,8 @@ function App() {
             <NotFound />
           </Route>
         </Switch>
-      </Provider>
-    </Router>
+      </Router>
+    </>
   )
 }
 

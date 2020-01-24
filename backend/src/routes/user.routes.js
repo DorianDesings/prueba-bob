@@ -13,6 +13,6 @@ router.post('/addUser', controller.addUser)
 router.put('/:id', controller.updateUser)
 
 //DELETE
-router.delete('/:id', controller.deleteUser)
+router.get('/delete/:id', controller.deleteUser)
 
 module.exports = router
