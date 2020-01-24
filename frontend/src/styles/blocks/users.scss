@@ -1,0 +1,32 @@
+.users{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px;
+    justify-items: center;
+
+    &__card{
+        text-align: center;
+    }
+
+    &__info{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__buttons{
+        display: flex;
+    }
+
+    &__button{
+        border: none;
+        outline: none;
+        padding: .5rem;
+        color: #fff;
+        &--update{
+            background-color: $main;
+        }
+        &--delete{
+            background-color: royalblue;
+        }
+    }
+}

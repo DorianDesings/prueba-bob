@@ -1,0 +1,16 @@
+//Reseteo de los estilos por defecto del navegador
+@import "base/normalize";
+//Estilos a las etiquetas base de nuestro sitio web, body, a, etc.
+@import "base/base";
+
+//Elementos de configuración
+@import "config/colors";
+
+
+//Estilos de los elementos que se repitirán en el sitio web
+@import "blocks/header";
+@import "blocks/logo";
+@import "blocks/menu";
+@import "blocks/form";
+@import "blocks/bags";
+@import "blocks/users";

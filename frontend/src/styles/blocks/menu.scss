@@ -1,0 +1,15 @@
+.menu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__link{
+        text-decoration: none;
+        color: #fff;
+        background-color: $main;
+        padding: .8rem;
+    }
+}
